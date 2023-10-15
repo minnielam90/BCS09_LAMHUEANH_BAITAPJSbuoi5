@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <div class="container py-5">
+      <h2 class="text-center">Bài tập JS buổi 5</h2>
+      <br />
+
+      <div class="card w-75 mx-auto">
+        <div class="bg-holder d-none d-lg-block bg-card"></div>
+        <div class="card-body position-relative p-0">
+          <div class="row p-0">
+            <div
+              class="col-12 col-md-4 col-lg-3 col-xl-2 nav-tabs nav flex-md-column nav-pills"
+              id="v-pills-tab"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+              <button
+                class="nav-link btn-tabs mb-2"
+                id="v-pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#bai1"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-home"
+              >
+                Bài 1
+              </button>
+              <button
+                class="nav-link btn-tabs mb-2"
+                id="v-pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#bai2"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-home"
+              >
+                Bài 2
+              </button>
+              <button
+                class="nav-link btn-tabs mb-2"
+                id="v-pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#bai3"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-home"
+              >
+                Bài 3
+              </button>
+              <button
+                class="nav-link btn-tabs mb-2"
+                id="v-pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#bai4"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-home"
+              >
+                Bài 4
+              </button>
+            </div>
+            <div
+              class="col-12 col-md-8 col-lg-9 col-xl-10 tab-content"
+              id="v-pills-tabContent"
+            >
+              <!-- Bài 1 -->
+              <div
+                class="tab-pane fade"
+                id="bai1"
+                role="tabpanel"
+                aria-labelledby="v-pills-home-tab"
+              >
+                <h4 class="card-heading">🏫 Quản lý tuyển sinh</h4>
+                <p>
+                  💡 Thí sinh sẽ trúng tuyển nếu có điểm tổng kết lớn hơn 0 và
+                  không có môn nào điểm 0.<br />
+                  &nbsp;&nbsp;- &nbsp;&nbsp;Điểm tổng kết là tổng điểm của 3 môn
+                  thi và điểm ưu tiên.<br />
+                  &nbsp;&nbsp;- &nbsp;&nbsp;Điểm ưu tiên bao gồm điểm ưu tiên
+                  theo khu vực và điểm ưu tiên theo đối tượng.
+                </p>
+                <form class="row gy-3 align-items-center px-2">
+                  <div class="col-12 col-lg-4">
+                    <input type="number" class="form-control form-input" id="inputScore" placeholder="Điểm chuẩn">
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <select class="form-control form-input w-100" name="" id="selLocation">
+                      <option value="0">Chọn khu vực</option>
+                      <option value="2">A</option>
+                      <option value="1">B</option>
+                      <option value="0.5">C</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <select class="form-control form-input w-100" name="" id="selUser">
+                      <option value="0">Chọn đối tượng</option>
+                      <option value="2.5">1</option>
+                      <option value="1.5">2</option>
+                      <option value="1">3</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <input type="number" class="form-control form-input w-100" id="inputScore1" placeholder="Điểm môn thứ 1">
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <input type="number" class="form-control form-input w-100" id="inputScore2" placeholder="Điểm môn thứ 2">
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <input type="number" class="form-control form-input w-100" id="inputScore3" placeholder="Điểm môn thứ 3">
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary me-1 mb-1" type="button" id="btnResult">Kết Quả</button>
+                  </div>
+                  <div class="alert alert-success" role="alert">
+                    👉
+                    <span id="txtResult"></span>
+                  </div>
+                </div>
+              </form>
+
+              <!-- Bài 2 -->
+              <div
+                class="tab-pane fade"
+                id="bai2"
+                role="tabpanel"
+                aria-labelledby="v-pills-home-tab"
+              >
+                <h4 class="card-heading">🔋 Tính tiền điện</h4>
+                <p>💡Nhập họ tên và số kw để tính tiền điện<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50kw đầu: 500d/kw<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50kw kế: 650d/kw<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100kw kế: 850d/kw<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;150kw kế: 1100d/kw<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Còn lại: 1300d/kw
+                </p>
+                
+                <div class="row gy-3 align-items-center px-2">
+                  <div class="col-12 col-lg-4">
+                    <label for="" class="form-label">Họ tên</label>
+                    <input
+                      type="text"
+                      class="form-control form-input w-100"
+                      id="inputName"
+                      aria-describedby="helpId"
+                      placeholder="Nhập họ tên"
+                    />
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <label for="" class="form-label">Số kw đã dùng</label>
+                    <input
+                      type="number"
+                      class="form-control form-input w-100"
+                      id="inputKW"
+                      aria-describedby="helpId"
+                      placeholder="Nhập số kw"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <button
+                      class="btn btn-primary me-1 mb-1"
+                      id="btnElectric"
+                    >
+                      Tính tiền điện
+                    </button>
+                  </div>
+                  <div class="alert alert-success" role="alert">
+                    👉
+                    <span id="txtElectric"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bài 3 -->
+              <div
+                class="tab-pane fade"
+                id="bai3"
+                role="tabpanel"
+                aria-labelledby="v-pills-home-tab"
+              >
+                <h4 class="card-heading">💰 Tính thuế thu nhập cá nhân</h4>
+                <p>💡 Nhập đầy đủ thông tin để tính tiền thuế thu nhập cá nhân</p>
+                <div class="row gy-3 align-items-center px-2">
+                  <div class="col-12 col-lg-4">
+                    <label for="" class="form-label">Họ tên</label>
+                    <input
+                      type="text"
+                      class="form-control w-100 form-input"
+                      id="inputName1"
+                      aria-describedby="helpId"
+                      placeholder="Nhập họ tên"
+                    />
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <label for="" class="form-label">Tổng thu nhập năm</label>
+                    <input
+                      type="number"
+                      class="form-control form-input w-100"
+                      id="inputSalary"
+                      aria-describedby="helpId"
+                      placeholder="Tổng thu nhập"
+                    />
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <label for="" class="form-label">Số người phụ thuộc</label>
+                    <input
+                      type="number"
+                      class="form-control form-input w-100"
+                      id="inputDependent"
+                      aria-describedby="helpId"
+                      placeholder="Nhập số người"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <button
+                      class="btn btn-primary me-1 mb-1"
+                      id="btnTax"
+                    >
+                      Tính tiền thuế
+                    </button>
+                  </div>
+                  <div class="alert alert-success" role="alert">
+                    👉
+                    <span id="txtTax"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bài 4 -->
+              <div
+                class="tab-pane fade"
+                id="bai4"
+                role="tabpanel"
+                aria-labelledby="v-pills-home-tab"
+              >
+                <h4 class="card-heading">
+                  🕸️ Tính tiền cáp
+                </h4>
+                <p>💡 Nhập thông tin để tính tiền cáp</p>
+                <div class="row gy-3 align-items-center px-2">
+                  <div class="col-12 col-lg-4">
+                    <label for="" class="form-label">Loại khách hàng</label>
+                    <select class="form-control form-input w-100" name="" id="selCustomer" onchange="disableInput()">
+                    <option value="">Nhấn để chọn</option>
+                    <option value="user">Nhà Dân</option>
+                    <option value="company">Doanh Nghiệp</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <label for="" class="form-label">Mã khách hàng</label>
+                    <input
+                      type="text"
+                      class="form-control w-100 form-input"
+                      name=""
+                      id="inputCusID"
+                      aria-describedby="helpId"
+                      placeholder="Nhập mã"
+                    />
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <label for="" class="form-label">Số kênh cao cấp</label>
+                    <input
+                      type="number"
+                      class="form-control w-100 form-input"
+                      name=""
+                      id="inputChannel"
+                      aria-describedby="helpId"
+                      placeholder="Nhập số kênh"
+                    />
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <input
+                      type="number"
+                      class="form-control w-100 form-input"
+                      name=""
+                      id="inputConnect"
+                      aria-describedby="helpId"
+                      placeholder="Nhập số kết nối"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary me-1 mb-1" id="btnNet">
+                      Tính tiền cáp
+                    </button>
+                  </div>
+                  <div class="alert alert-success" role="alert">
+                    👉
+                    <span id="txtNet"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
