@@ -17,7 +17,10 @@ btnResult.onclick = function manageAdmission() {
     khuVuc = document.getElementById("selLocation").value * 1,
     doiTuong = document.getElementById("selUser").value * 1,
     x = !0;
-  if (
+
+  if (diemChuan <= 0) {
+    alert("Điểm chuẩn phải lớn hơn 0");
+  } else if (
     (x &= checkScore(diemMon1) && checkScore(diemMon2) && checkScore(diemMon3))
   ) {
     var ketQua = diemMon1 + diemMon2 + diemMon3 + (khuVuc + doiTuong);
@@ -52,25 +55,28 @@ btnElectric.onclick = function calcElectric() {
   var hoTen = document.getElementById("inputName").value,
     soKW = document.getElementById("inputKW").value * 1,
     tienDien = 0;
-  0 < soKW && soKW <= 50
-    ? (tienDien = soKW * kw_1)
-    : soKW > 50 && soKW <= 100
-    ? (tienDien = 50 * kw_1 + (soKW - 50) * kw_2)
-    : soKW > 100 && soKW <= 200
-    ? (tienDien = 50 * kw_1 + 50 * kw_2 + (soKW - 100) * kw_3)
-    : soKW > 200 && soKW <= 350
-    ? (tienDien = 50 * kw_1 + 50 * kw_2 + 100 * kw_3 + (soKW - 200) * kw_4)
-    : soKW > 350
-    ? (tienDien =
-        50 * kw_1 + 50 * kw_2 + 100 * kw_3 + 150 * kw_4 + (soKW - 350) * kw_5)
-    : alert("Số kw không hợp lệ. Vui lòng nhập lại"),
-    (document.getElementById("txtElectric").innerHTML =
-      `Họ tên :  ` +
-      hoTen +
-      `  ; Tiền điện :   ${tienDien.toLocaleString("it-IT", {
-        style: "currency",
-        currency: "VND",
-      })}`);
+  if (0 < soKW && soKW <= 50) {
+    tienDien = soKW * kw_1;
+  } else if (soKW > 50 && soKW <= 100) {
+    tienDien = 50 * kw_1 + (soKW - 50) * kw_2;
+  } else if (soKW > 100 && soKW <= 200) {
+    tienDien = 50 * kw_1 + 50 * kw_2 + (soKW - 100) * kw_3;
+  } else if (soKW > 200 && soKW <= 350) {
+    tienDien = 50 * kw_1 + 50 * kw_2 + 100 * kw_3 + (soKW - 200) * kw_4;
+  } else if (soKW > 350) {
+    tienDien =
+      50 * kw_1 + 50 * kw_2 + 100 * kw_3 + 150 * kw_4 + (soKW - 350) * kw_5;
+  } else {
+    alert("Số kw không hợp lệ. Vui lòng nhập lại");
+  }
+
+  document.getElementById("txtElectric").innerHTML =
+    `Họ tên :  ` +
+    hoTen +
+    `  ; Tiền điện :   ${tienDien.toLocaleString("it-IT", {
+      style: "currency",
+      currency: "VND",
+    })}`;
 };
 // Bài 2 end
 
@@ -82,28 +88,31 @@ btnTax.onclick = function calcTax() {
     phuThuoc = document.getElementById("inputDependent").value * 1,
     thuNhapThue = thuNhap - 4e6 - phuThuoc * 16e5,
     tienThue = 0;
-  thuNhapThue > 0 && thuNhapThue <= 6e7
-    ? (tienThue = 0.05 * thuNhapThue)
-    : thuNhapThue > 6e7 && thuNhapThue <= 12e7
-    ? (tienThue = 0.1 * thuNhapThue)
-    : thuNhapThue > 12e7 && thuNhapThue <= 21e7
-    ? (tienThue = 0.15 * thuNhapThue)
-    : thuNhapThue > 21e7 && thuNhapThue <= 384e6
-    ? (tienThue = 0.2 * thuNhapThue)
-    : thuNhapThue > 384e6 && thuNhapThue <= 624e6
-    ? (tienThue = 0.25 * thuNhapThue)
-    : thuNhapThue > 624e6 && thuNhapThue <= 96e7
-    ? (tienThue = 0.3 * thuNhapThue)
-    : thuNhapThue > 96e7
-    ? (tienThue = 0.35 * thuNhapThue)
-    : alert("Số tiền thu nhập không hợp lệ. Vui lòng nhập lại"),
-    (document.getElementById("txtTax").innerHTML =
-      `Họ tên :  ` +
-      hoTenThue +
-      `  ; Tiền thuế thu nhập cá nhân :   ${tienThue.toLocaleString("it-IT", {
-        style: "currency",
-        currency: "VND",
-      })}`);
+
+  if (thuNhapThue > 0 && thuNhapThue <= 6e7) {
+    tienThue = 0.05 * thuNhapThue;
+  } else if (thuNhapThue > 6e7 && thuNhapThue <= 12e7) {
+    tienThue = 0.1 * thuNhapThue;
+  } else if (thuNhapThue > 12e7 && thuNhapThue <= 21e7) {
+    tienThue = 0.15 * thuNhapThue;
+  } else if (thuNhapThue > 21e7 && thuNhapThue <= 384e6) {
+    tienThue = 0.2 * thuNhapThue;
+  } else if (thuNhapThue > 384e6 && thuNhapThue <= 624e6) {
+    tienThue = 0.25 * thuNhapThue;
+  } else if (thuNhapThue > 624e6 && thuNhapThue <= 96e7) {
+    tienThue = 0.3 * thuNhapThue;
+  } else if (thuNhapThue > 96e7) {
+    tienThue = 0.35 * thuNhapThue;
+  } else {
+    alert("Số tiền thu nhập không hợp lệ. Vui lòng nhập lại");
+  }
+  document.getElementById("txtTax").innerHTML =
+    `Họ tên :  ` +
+    hoTenThue +
+    `  ; Tiền thuế thu nhập cá nhân :   ${tienThue.toLocaleString("it-IT", {
+      style: "currency",
+      currency: "VND",
+    })}`;
 };
 // Bài 3 end
 
@@ -121,32 +130,31 @@ btnNet.onclick = function calcNet() {
     soKenh = document.getElementById("inputChannel").value,
     soKetNoi = document.getElementById("inputConnect").value,
     tienCap = 0;
-  "company" == loaiKH
-    ? (tienCap = tinhTong(15, 75, 50, soKenh, soKetNoi, 5))
-    : "user" == loaiKH
-    ? (tienCap = tinhTong(4.5, 20.5, 7.5, soKenh, 0, 0))
-    : alert("Hãy chọn loại khách hàng"),
-    (document.getElementById("txtNet").innerHTML =
+
+  if ("company" == loaiKH) {
+    tienCap = tinhTong(15, 75, 50, soKenh, soKetNoi, 5);
+  } else if ("user" == loaiKH) {
+    tienCap = tinhTong(4.5, 20.5, 7.5, soKenh, 0, 0);
+  } else {
+    alert("Hãy chọn loại khách hàng");
+  }
+
+  if (soKenh >= 0) {
+    document.getElementById("txtNet").innerHTML =
       `Mã khách hàng : ` +
       maKH +
       ` ;  Tiền cáp : ` +
       new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
-      }).format(tienCap));
+      }).format(tienCap);
+  } else {
+    alert("Số kênh cao cấp phải lớn hơn hoặc bằng 0");
+  }
 };
 
 function tinhTong(loaiKH, maKH, soKenh, soKetNoi, tienCap, l) {
   var m = loaiKH + maKH + soKenh * soKetNoi;
   return tienCap > 10 && (m += (tienCap - 10) * l), m;
 }
-
-// document.onkeydown = function (loaiKH) {
-//   return (
-//     123 != (loaiKH = loaiKH || window.event).keyCode &&
-//     (!loaiKH.ctrlKey || !loaiKH.shiftKey || 73 != loaiKH.keyCode) &&
-//     void 0
-//   );
-// };
-
 // Bài 4 end
